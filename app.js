@@ -21,9 +21,13 @@ app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/posts", postRoute);
 app.use("/api/test", testRoute);
-app.use("/api/chats", chatRoute);
+app.use("/api/chats", chatRoute); 
 app.use("/api/messages", messageRoute);
 
-app.listen(5400, () => {
-  console.log("Server is running!");
+app.get("/", (req, res) => {
+  res.send("Welcome to the API!");
+});
+
+app.listen(process.env.PORT, () => {
+  console.log(`Server is running on port ${process.env.PORT}`);
 });
